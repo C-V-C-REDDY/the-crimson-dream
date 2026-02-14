@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://dxmi6m8imrofm"]
+
+[ext_resource type="Script" uid="uid://cyd7lshrpmceu" path="res://Scripts/spawn_timer.gd" id="1_uc0l5"]
+
+[node name="PipeSpawner" type="Node2D"]
+
+[node name="SpawnTimer" type="Timer" parent="."]
+script = ExtResource("1_uc0l5")
+pipe_speed = null
+spawn_margin_top = null
+spawn_margin_bottom = null

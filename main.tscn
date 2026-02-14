@@ -1,0 +1,33 @@
+[gd_scene load_steps=8 format=3 uid="uid://sxt8fcbkhx0j"]
+
+[ext_resource type="Script" uid="uid://kcorbtn7eqk2" path="res://Scripts/game_manager.gd" id="1_6bp64"]
+[ext_resource type="PackedScene" uid="uid://cvl8j7kicitup" path="res://Scenes/scrolling_ground.tscn" id="2_bo1nx"]
+[ext_resource type="PackedScene" uid="uid://c7hhu2wv0q2oa" path="res://Scripts/crow.tscn" id="3_8gbba"]
+[ext_resource type="PackedScene" uid="uid://bwgqdg7wmxrca" path="res://Scripts/pillar_spawner.tscn" id="4_jjvhh"]
+[ext_resource type="PackedScene" uid="uid://bdo5bwn4rod5s" path="res://Scripts/fade.tscn" id="5_kry3j"]
+[ext_resource type="Texture2D" uid="uid://bbjgo7rtrrxh1" path="res://sprites/—Pngtree—blood moon with red cloud_8801181.png" id="7_6bp64"]
+[ext_resource type="PackedScene" uid="uid://kr3ldqn2mjit" path="res://Scripts/ui.tscn" id="7_344ge"]
+
+[node name="Main" type="Node2D"]
+texture_filter = 1
+
+[node name="GameManager" type="Node" parent="."]
+script = ExtResource("1_6bp64")
+
+[node name="ScrollingGround" parent="." instance=ExtResource("2_bo1nx")]
+position = Vector2(168, 456)
+
+[node name="Crow" parent="." instance=ExtResource("3_8gbba")]
+position = Vector2(90, 215)
+
+[node name="PillarSpawner" parent="." instance=ExtResource("4_jjvhh")]
+
+[node name="Fade" parent="." instance=ExtResource("5_kry3j")]
+
+[node name="UI" parent="." instance=ExtResource("7_344ge")]
+
+[node name="Sprite2D3" type="Sprite2D" parent="."]
+modulate = Color(1, 0.23209421, 1, 0.91200006)
+position = Vector2(146, 46)
+scale = Vector2(0.058875002, 0.05066667)
+texture = ExtResource("7_6bp64")

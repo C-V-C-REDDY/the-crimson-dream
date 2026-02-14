@@ -1,0 +1,32 @@
+[gd_scene load_steps=7 format=3 uid="uid://dbd80emeyn5ki"]
+
+[ext_resource type="Script" uid="uid://cbeie0kr8dcdm" path="res://Scripts/audio_manager.gd" id="1_mjqhu"]
+[ext_resource type="AudioStream" uid="uid://xb7v23byyu3s" path="res://audio/swoosh.ogg" id="2_5kf6k"]
+[ext_resource type="AudioStream" uid="uid://crftohob5ymfo" path="res://audio/wing.ogg" id="4_lwpe1"]
+[ext_resource type="AudioStream" uid="uid://ck27mv75g2yg2" path="res://audio/point.wav" id="5_5kf6k"]
+[ext_resource type="AudioStream" uid="uid://b2e8r8iw7b6kn" path="res://audio/lightning.mp3" id="5_mjqhu"]
+[ext_resource type="AudioStream" uid="uid://blhgn1rbkqase" path="res://sprites/tunetank-dark-space-ambient-348870.mp3" id="6_mjqhu"]
+
+[node name="AudioManager" type="Node"]
+script = ExtResource("1_mjqhu")
+
+[node name="SwooshPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_5kf6k")
+
+[node name="DiePlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_mjqhu")
+pitch_scale = 0.7
+
+[node name="WingPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_lwpe1")
+
+[node name="PointPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_5kf6k")
+bus = &"SFX"
+
+[node name="HitPlayer" type="AudioStreamPlayer" parent="."]
+volume_db = -10.0
+pitch_scale = 0.7
+
+[node name="BGMPlayer" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_mjqhu")

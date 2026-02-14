@@ -1,0 +1,103 @@
+[gd_scene load_steps=12 format=3 uid="uid://c7hhu2wv0q2oa"]
+
+[ext_resource type="Script" uid="uid://ck8nju4bpjpjb" path="res://Scripts/crow.gd" id="1_pk6kh"]
+[ext_resource type="Texture2D" uid="uid://j4fpf85fjg5r" path="res://sprites/crow.up.png" id="2_jwn6c"]
+[ext_resource type="Texture2D" uid="uid://dva836jvpyun4" path="res://sprites/crow.down.png" id="3_q3usd"]
+[ext_resource type="Texture2D" uid="uid://dkphrrt4l1rbr" path="res://sprites/crow.upp.png" id="4_q3usd"]
+[ext_resource type="FontFile" uid="uid://curkghhhrovqq" path="res://sprites/Haruto-Personal-Use.ttf" id="5_q3usd"]
+[ext_resource type="Script" uid="uid://gn8dioaxdgrw" path="res://Scripts/line_2d.gd" id="6_e0dsg"]
+[ext_resource type="PackedScene" uid="uid://bdo5bwn4rod5s" path="res://Scripts/fade.tscn" id="7_dxjyr"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_2g74m"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_jwn6c")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_q3usd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_q3usd")
+}],
+"loop": true,
+"name": &"flap",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_e0dsg"]
+size = Vector2(31, 11)
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_q3usd"]
+blend_mode = 1
+
+[sub_resource type="Curve" id="Curve_q3usd"]
+
+[node name="Crow" type="CharacterBody2D"]
+light_mask = 3
+z_index = 10
+script = ExtResource("1_pk6kh")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+modulate = Color(2.6126626, 2.0816588, 2.108209, 1)
+position = Vector2(-1.9073486e-06, 0.5)
+scale = Vector2(0.26399997, 0.21999997)
+sprite_frames = SubResource("SpriteFrames_2g74m")
+animation = &"flap"
+frame_progress = 0.69848704
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.5, 1.5)
+shape = SubResource("RectangleShape2D_e0dsg")
+
+[node name="Instructions" type="Sprite2D" parent="."]
+show_behind_parent = true
+top_level = true
+position = Vector2(144, 200)
+
+[node name="ColorRect" type="ColorRect" parent="Instructions"]
+modulate = Color(1, 1, 1, 0.5882353)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Label" type="Label" parent="Instructions"]
+modulate = Color(0.5795252, 0.1213048, 0.1213048, 1)
+texture_filter = 1
+offset_left = -118.0
+offset_top = 30.0
+offset_right = 124.0
+offset_bottom = 141.0
+theme_override_fonts/font = ExtResource("5_q3usd")
+theme_override_font_sizes/font_size = 32
+text = "\"Tap to Enter
+the 
+CRIMSON DREAM\""
+horizontal_alignment = 1
+
+[node name="lightningSparks" type="CPUParticles2D" parent="."]
+material = SubResource("CanvasItemMaterial_q3usd")
+emitting = false
+amount = 25
+lifetime = 0.2
+one_shot = true
+explosiveness = 1.0
+emission_shape = 3
+emission_rect_extents = Vector2(1, 1)
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 150.0
+initial_velocity_max = 250.0
+orbit_velocity_max = 5.0
+scale_amount_curve = SubResource("Curve_q3usd")
+color = Color(0.23209421, 0.9754234, 1, 1)
+
+[node name="Line2D" type="Line2D" parent="."]
+width = 2.0
+default_color = Color(0.7425357, 0.88001394, 1, 1)
+script = ExtResource("6_e0dsg")
+
+[node name="Fade" parent="." instance=ExtResource("7_dxjyr")]

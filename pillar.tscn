@@ -1,0 +1,60 @@
+[gd_scene load_steps=6 format=3 uid="uid://bq2b4jvw7d8b8"]
+
+[ext_resource type="Script" uid="uid://d4c0adbwwbcdu" path="res://Scripts/pillar.gd" id="1_affyb"]
+[ext_resource type="Texture2D" uid="uid://dmdg6ckx03y3i" path="res://sprites/pipe-green.png" id="2_7id7u"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hnit7"]
+size = Vector2(36, 620)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_p1buf"]
+size = Vector2(46.5, 606)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_n21g0"]
+size = Vector2(12, 191)
+
+[node name="Pillar" type="Node2D"]
+script = ExtResource("1_affyb")
+
+[node name="Toppillar" type="Area2D" parent="."]
+modulate = Color(1, 0, 0.4834036, 1)
+position = Vector2(0, -150)
+
+[node name="Sprite2D" type="Sprite2D" parent="Toppillar"]
+modulate = Color(1, 1, 1, 0.6862745)
+z_index = 5
+rotation = 3.1415927
+scale = Vector2(0.5, 1)
+texture = ExtResource("2_7id7u")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Toppillar"]
+position = Vector2(1, -7)
+scale = Vector2(0.5, 0.5)
+shape = SubResource("RectangleShape2D_hnit7")
+
+[node name="Bottompillar" type="Area2D" parent="."]
+position = Vector2(0, 300)
+
+[node name="Sprite2D" type="Sprite2D" parent="Bottompillar"]
+modulate = Color(0.91, 0.0637, 0.27527502, 0.6862745)
+z_index = 5
+scale = Vector2(0.5, 1)
+texture = ExtResource("2_7id7u")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Bottompillar"]
+modulate = Color(0.9999998, 0.104661055, 0.3888148, 1)
+position = Vector2(-0.375, 4.5)
+scale = Vector2(0.5, 0.5)
+shape = SubResource("RectangleShape2D_p1buf")
+
+[node name="scorearea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="scorearea"]
+position = Vector2(48, 74.5)
+shape = SubResource("RectangleShape2D_n21g0")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+
+[connection signal="body_entered" from="Toppillar" to="." method="_on_toppipe_body_entered"]
+[connection signal="body_entered" from="Bottompillar" to="." method="_on_toppipe_body_entered"]
+[connection signal="body_entered" from="scorearea" to="." method="_on_scorearea_body_entered"]
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]
