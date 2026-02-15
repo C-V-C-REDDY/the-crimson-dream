@@ -1,6 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://mfcw8rogdhlb"]
-
-[ext_resource type="Script" uid="uid://di1nnl0tmk0gv" path="res://Scripts/Final_check.gd" id="1_20w3y"]
-
-[node name="Final_check" type="Node2D"]
-script = ExtResource("1_20w3y")

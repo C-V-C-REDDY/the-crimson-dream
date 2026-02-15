@@ -49,20 +49,16 @@ func upadate_gameplay_score(points: int) -> void:
 	set_container_score(points,points_container)
 	
 func assign_medal(score: int) -> void:
-	medal_texture.visible = false
+	var reward = SignalBus.get_reward_for_score(score)
+	#If the Brain found something, show it!
+	if reward:
+		medal_texture.texture = reward["tex"]
+		medal_texture.visible = true
+		print("Awarded: ", reward["name"] ) #This helps us debug in console
+	else:
+		medal_texture.visible = false
 	
-	if score >= 50:
-		medal_texture.texture = medal_textures[3]
-		medal_texture.visible = true
-	elif score >= 30:
-		medal_texture.texture = medal_textures[2]
-		medal_texture.visible = true
-	elif score >= 15:
-		medal_texture.texture = medal_textures[1]
-		medal_texture.visible = true
-	elif score >= 5:
-		medal_texture.texture = medal_textures[0]
-		medal_texture.visible = true
+	
 		
 func on_game_over() -> void:
 	game_over_box.visible = true

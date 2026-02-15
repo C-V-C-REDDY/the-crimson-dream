@@ -8,6 +8,23 @@ const SAVE_FILE_PATH = "user://highscore.save"
 
 var score: int = 0
 var high_score: int = 0
+var rewards = {
+	5: {"name" : "Green Shard" , "tex": preload("res://sprites/output-onlinepngtools (8).png")},
+	15: {"name": "Purple Shard" , "tex": preload("res://sprites/output-onlinepngtools (6).png")},
+	30: {"name": "Blood Feather" , "tex": preload("res://sprites/output-onlinepngtools (9).png")},
+	50: {"name":"Elite Hourse" , "tex": preload("res://sprites/output-onlinepngtools (7).png")}
+}
+func get_reward_for_score(score: int):
+	var best_reward = null
+	#We check each required. Since dictionaries aren't always ordered,
+	#we sort the keys to check from lowest to highest.
+	var thresholds = rewards.keys()
+	thresholds.sort()
+	
+	for amount in thresholds:
+		if score >= amount:
+			best_reward = rewards[amount]
+	return best_reward
 
 
 func _ready() -> void:

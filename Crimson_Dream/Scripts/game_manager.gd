@@ -5,7 +5,7 @@ extends Node
 @onready var scrolling_ground: Node2D = $"../ScrollingGround"
 @onready var fade: FadeEffect = $"../Fade"
 @onready var ui: UI = $"../UI"
-@onready var chidori_sparks: CPUParticles2D = $ChidoriSparks
+@onready var lightning_sparks: CPUParticles2D = $lightningSparks
 
 
 
