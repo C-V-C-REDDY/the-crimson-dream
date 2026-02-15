@@ -1,0 +1,23 @@
+[gd_scene load_steps=5 format=3 uid="uid://sxt8fcbkhx0j"]
+
+[ext_resource type="Texture2D" uid="uid://c3g48n3ktgiub" path="res://sprites/background-day.png" id="1_jjgbg"]
+[ext_resource type="PackedScene" uid="uid://cvl8j7kicitup" path="res://Scenes/scrolling_ground.tscn" id="2_bo1nx"]
+[ext_resource type="PackedScene" uid="uid://c7hhu2wv0q2oa" path="res://Scripts/bird.tscn" id="3_8gbba"]
+[ext_resource type="PackedScene" uid="uid://bwgqdg7wmxrca" path="res://Scripts/pipe_spawner.tscn" id="4_jjvhh"]
+
+[node name="Main" type="Node2D"]
+
+[node name="Background" type="TextureRect" parent="."]
+custom_minimum_size = Vector2(288, 512)
+offset_top = -1.0
+offset_right = 288.0
+offset_bottom = 511.0
+texture = ExtResource("1_jjgbg")
+
+[node name="ScrollingGround" parent="Background" instance=ExtResource("2_bo1nx")]
+position = Vector2(168, 457)
+
+[node name="Bird" parent="." instance=ExtResource("3_8gbba")]
+position = Vector2(70, 194)
+
+[node name="PipeSpawner" parent="." instance=ExtResource("4_jjvhh")]

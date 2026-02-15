@@ -1,0 +1,36 @@
+[gd_scene load_steps=8 format=3 uid="uid://sxt8fcbkhx0j"]
+
+[ext_resource type="Script" uid="uid://kcorbtn7eqk2" path="res://Scripts/game_manager.gd" id="1_6bp64"]
+[ext_resource type="Texture2D" uid="uid://c3g48n3ktgiub" path="res://sprites/background-day.png" id="1_jjgbg"]
+[ext_resource type="PackedScene" uid="uid://cvl8j7kicitup" path="res://Scenes/scrolling_ground.tscn" id="2_bo1nx"]
+[ext_resource type="PackedScene" uid="uid://c7hhu2wv0q2oa" path="res://Scripts/crow.tscn" id="3_8gbba"]
+[ext_resource type="PackedScene" uid="uid://bwgqdg7wmxrca" path="res://Scripts/pillar_spawner.tscn" id="4_jjvhh"]
+[ext_resource type="PackedScene" uid="uid://bdo5bwn4rod5s" path="res://Scripts/fade.tscn" id="5_kry3j"]
+[ext_resource type="PackedScene" uid="uid://kr3ldqn2mjit" path="res://Scripts/ui.tscn" id="7_344ge"]
+
+[node name="Main" type="Node2D"]
+
+[node name="GameManager" type="Node" parent="."]
+script = ExtResource("1_6bp64")
+
+[node name="Background" type="TextureRect" parent="."]
+custom_minimum_size = Vector2(288, 512)
+offset_top = -1.0
+offset_right = 288.0
+offset_bottom = 511.0
+texture = ExtResource("1_jjgbg")
+
+[node name="ScrollingGround" parent="." instance=ExtResource("2_bo1nx")]
+position = Vector2(168, 456)
+
+[node name="Crow" parent="." instance=ExtResource("3_8gbba")]
+position = Vector2(70, 194)
+
+[node name="PillarSpawner" parent="." instance=ExtResource("4_jjvhh")]
+pipe_spped = null
+spawn_margin_top = null
+spawn_margin_bottom = null
+
+[node name="Fade" parent="." instance=ExtResource("5_kry3j")]
+
+[node name="UI" parent="." instance=ExtResource("7_344ge")]

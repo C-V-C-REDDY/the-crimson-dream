@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://b1sw1ov24pcfk"
+path="res://.godot/imported/Itachi Uchiha Theme Senya with Rain & Thunder - Extended.mp3-00d35a2ead8690ad5777256d905ff0d8.mp3str"
+
+[deps]
+
+source_file="res://sprites/Itachi Uchiha Theme Senya with Rain & Thunder - Extended.mp3"
+dest_files=["res://.godot/imported/Itachi Uchiha Theme Senya with Rain & Thunder - Extended.mp3-00d35a2ead8690ad5777256d905ff0d8.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0.0
+bpm=0
+beat_count=0
+bar_beats=4
