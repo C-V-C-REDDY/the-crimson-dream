@@ -58,5 +58,9 @@ func die() -> void:
 	is_dead = true
 	$lightningSparks.emitting = true
 	$Line2D.start_strike()
+	animated_sprite_2d.stop()
 	
 	# We don't set gravity to 0 here so the bird falls to the ground!
+func stop() -> void:
+	animated_sprite_2d.stop()
+	die()
