@@ -16,6 +16,10 @@ class_name Crow extends CharacterBody2D
 var is_dead: bool = false
 var is_game_started: bool = false
 
+
+
+
+
 func _physics_process(delta: float) -> void:
 	# 1. Handle Input (The "Brain")
 	handle_input()
@@ -53,13 +57,15 @@ func rotate_while_falling(delta: float) -> void:
 	if velocity.y > 0:
 		rotation = lerp_angle(rotation, deg_to_rad(TILT_DOWN_DEG), ROTATION_SPEED * delta)
 
+
+
 func die() -> void:
 	if is_dead: return # Don't die twice!
 	is_dead = true
 	$lightningSparks.emitting = true
 	$Line2D.start_strike()
 	animated_sprite_2d.stop()
-	
+
 	# We don't set gravity to 0 here so the bird falls to the ground!
 func stop() -> void:
 	animated_sprite_2d.stop()

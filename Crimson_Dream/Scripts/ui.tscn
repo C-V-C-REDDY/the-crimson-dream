@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://kr3ldqn2mjit"]
+[gd_scene load_steps=8 format=3 uid="uid://kr3ldqn2mjit"]
 
 [ext_resource type="Texture2D" uid="uid://bcvuti2hlxuf3" path="res://sprites/gameover.png" id="1_5xau3"]
 [ext_resource type="Script" uid="uid://lyk3ou3a6ixj" path="res://Scripts/ui.gd" id="1_ouf27"]
@@ -6,8 +6,27 @@
 [ext_resource type="FontFile" uid="uid://curkghhhrovqq" path="res://sprites/Haruto-Personal-Use.ttf" id="4_lkys2"]
 [ext_resource type="Texture2D" uid="uid://d2y1yb2duuflf" path="res://sprites/output-onlinepngtools (7).png" id="5_lkys2"]
 
+[sub_resource type="Gradient" id="Gradient_lkys2"]
+colors = PackedColorArray(1, 1, 1, 0, 0, 0, 0, 0.54901963)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_jqm33"]
+gradient = SubResource("Gradient_lkys2")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(1.5, 1.5)
+
 [node name="UI" type="CanvasLayer"]
 script = ExtResource("1_ouf27")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = SubResource("GradientTexture2D_jqm33")
+expand_mode = 1
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 custom_minimum_size = Vector2(288, 512)

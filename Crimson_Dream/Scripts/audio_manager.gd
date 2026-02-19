@@ -10,7 +10,7 @@ extends Node
 
 func play_sorrow_music() -> void:
 	bgm_player.play()
-	#bgm_player.seek(30.0)
+	bgm_player.seek(8.0)
 func stop_music() -> void:
 	bgm_player.stop()
 

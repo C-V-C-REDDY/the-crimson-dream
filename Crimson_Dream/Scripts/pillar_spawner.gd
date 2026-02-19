@@ -6,7 +6,7 @@ class_name PillarSpawner extends Node
 @export var spawn_interval: float = 1.5 # How many seconds between pipes
 @export_range (0.0, 1.0) var spawn_margin_top: float = 0.2
 @export_range (0.0, 1.0) var spawn_margin_bottom: float = 0.4
-
+@export var gap_size: float = 0.0
 @onready var spawn_timer: Timer = $SpawnTimer
 
 func _ready() -> void:
@@ -16,6 +16,8 @@ func _ready() -> void:
 func spawn_pipe() -> void:
 	var new_pillar = pillar_scene.instantiate()
 	add_child(new_pillar)
+	if new_pillar.has_method("set_gap_size"):
+		new_pillar.set_gap_size(gap_size)
 	
 	# Logic: Get Screen Dimensions
 	var viewport_size = get_viewport().get_visible_rect().size
