@@ -6,8 +6,6 @@ class_name UI extends CanvasLayer
 @onready var best_score_container: HBoxContainer = $"MarginContainer/GameOver Box/Panel/BestScoreContainer"
 @onready var medal_texture: TextureRect = $"MarginContainer/GameOver Box/Panel/MedalTexture"
 
-
-
 var digit_textures: Array[Texture2D] = [
 	preload("res://sprites/0.png"),
 	preload("res://sprites/1.png"),
@@ -49,20 +47,16 @@ func upadate_gameplay_score(points: int) -> void:
 	set_container_score(points,points_container)
 	
 func assign_medal(score: int) -> void:
-	medal_texture.visible = false
+	var reward = SignalBus.get_reward_for_score(score)
+	#If the Brain found something, show it!
+	if reward:
+		medal_texture.texture = reward["tex"]
+		medal_texture.visible = true
+		print("Awarded: ", reward["name"] ) #This helps us debug in console
+	else:
+		medal_texture.visible = false
 	
-	if score >= 50:
-		medal_texture.texture = medal_textures[3]
-		medal_texture.visible = true
-	elif score >= 30:
-		medal_texture.texture = medal_textures[2]
-		medal_texture.visible = true
-	elif score >= 15:
-		medal_texture.texture = medal_textures[1]
-		medal_texture.visible = true
-	elif score >= 5:
-		medal_texture.texture = medal_textures[0]
-		medal_texture.visible = true
+	
 		
 func on_game_over() -> void:
 	game_over_box.visible = true
@@ -71,9 +65,6 @@ func on_game_over() -> void:
 	
 	set_container_score(SignalBus.high_score, best_score_container)
 	assign_medal(SignalBus.score)
-
-
-
 
 func _on_button_pressed() -> void:
 	get_tree().reload_current_scene()
