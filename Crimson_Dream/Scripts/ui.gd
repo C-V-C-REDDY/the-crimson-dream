@@ -6,8 +6,6 @@ class_name UI extends CanvasLayer
 @onready var best_score_container: HBoxContainer = $"MarginContainer/GameOver Box/Panel/BestScoreContainer"
 @onready var medal_texture: TextureRect = $"MarginContainer/GameOver Box/Panel/MedalTexture"
 
-
-
 var digit_textures: Array[Texture2D] = [
 	preload("res://sprites/0.png"),
 	preload("res://sprites/1.png"),
@@ -67,9 +65,6 @@ func on_game_over() -> void:
 	
 	set_container_score(SignalBus.high_score, best_score_container)
 	assign_medal(SignalBus.score)
-
-
-
 
 func _on_button_pressed() -> void:
 	get_tree().reload_current_scene()

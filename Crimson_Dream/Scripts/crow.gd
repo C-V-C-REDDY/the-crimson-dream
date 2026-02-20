@@ -57,8 +57,6 @@ func rotate_while_falling(delta: float) -> void:
 	if velocity.y > 0:
 		rotation = lerp_angle(rotation, deg_to_rad(TILT_DOWN_DEG), ROTATION_SPEED * delta)
 
-
-
 func die() -> void:
 	if is_dead: return # Don't die twice!
 	is_dead = true

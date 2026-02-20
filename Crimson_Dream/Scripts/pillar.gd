@@ -40,12 +40,9 @@ func _on_scorearea_body_entered(body: Node2D) -> void:
 	if body.name == "Crow":
 		SignalBus.add_point()
 
-
 func _on_toppipe_body_entered(body: Node2D) -> void:
 	if body.name == "Crow":
 		SignalBus.crow_crashed.emit()
 
-
 func _on_visible_on_screen_notifier_2d_screen_exited() -> void:
 	queue_free()
-	

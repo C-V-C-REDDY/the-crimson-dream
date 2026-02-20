@@ -7,7 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://d2y1yb2duuflf" path="res://sprites/output-onlinepngtools (7).png" id="5_lkys2"]
 
 [sub_resource type="Gradient" id="Gradient_lkys2"]
-colors = PackedColorArray(1, 1, 1, 0, 0, 0, 0, 0.54901963)
+colors = PackedColorArray(1, 1, 1, 0, 0, 0, 0, 0.49019608)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_jqm33"]
 gradient = SubResource("Gradient_lkys2")
@@ -79,10 +79,10 @@ alignment = 1
 modulate = Color(1.9367292, 0, 0, 1)
 texture_filter = 1
 layout_mode = 0
-offset_left = 253.0
-offset_top = -208.0
-offset_right = 280.0
-offset_bottom = -190.0
+offset_left = 238.0
+offset_top = -217.0
+offset_right = 265.0
+offset_bottom = -199.0
 alignment = 1
 
 [node name="Button" type="Button" parent="MarginContainer/GameOver Box/Panel"]

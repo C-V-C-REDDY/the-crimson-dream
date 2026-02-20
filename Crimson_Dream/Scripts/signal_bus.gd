@@ -1,10 +1,8 @@
 extends Node
 
-
 signal game_started
 signal score_updated(new_score: int)
 signal crow_crashed
-
 
 const SAVE_FILE_PATH = "user://highscore.save"
 var shake_strength : float = 0.0
@@ -57,22 +55,11 @@ func check_high_score() -> void:
 	if score > high_score:
 		high_score = score
 		save_high_score()
-		
-		
+
 func add_point() -> void:
 	score += 1
 	score_updated.emit(score)
 
-
-
-		
-		
 func reset_score() -> void:
 	score = 0
 	score_updated.emit(score)
-
-	
-
-		
-		
-	

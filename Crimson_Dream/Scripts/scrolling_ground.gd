@@ -28,8 +28,6 @@ func _process(delta: float) -> void:
 	# Check ground 2
 	if ground_2.position.x < -texture_width:
 		ground_2.position.x += 2 * texture_width
-	 
-	
 
 func _on_ground_1_body_entered(body: Node2D) -> void:
 	if body.name == "Crow":
