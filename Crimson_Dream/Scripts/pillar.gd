@@ -5,6 +5,11 @@ class_name Pillar extends Node2D
 var current_gap: float = 125.0
 var speed: float = 0.0
 
+
+func _ready() -> void:
+	%AnimationPlayer.play("idle")
+
+
 func set_gap_size(gap_distance: float) -> void:
 	if is_inside_tree() and has_node("Toppillar"):
 		_apply_gap()

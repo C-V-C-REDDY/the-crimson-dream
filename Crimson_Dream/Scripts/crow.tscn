@@ -46,7 +46,6 @@ position = Vector2(-1.9073486e-06, 0.5)
 scale = Vector2(0.26399997, 0.21999997)
 sprite_frames = SubResource("SpriteFrames_2g74m")
 animation = &"flap"
-frame_progress = 0.69848704
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-0.5, 1.5)
